@@ -1,0 +1,47 @@
+<h1>Hello World, hope you're listening</h1>
+<p><em>Forgive me if I'm young, speaking out of turn</em></p>
+<p>My name is: {{name}}</p>
+<p>I'm {{age}} years old</p>
+<p>I live in {{address.city + ", street " + address.street + ", " + address.state}}</p>
+<h2>Edit User</h2>
+<div>
+  <h4><label for="name">Name:</label></h4>
+  <form action="">
+    <input type="text" id="name" [(ngModel)]="name" name='name'>
+  </form>
+</div>
+<div>
+    <h4><label for="age">Age:</label></h4>
+    <form action="">
+      <input type="number" id="age" [(ngModel)]="age" name='age'>
+    </form>
+</div>
+<div>
+    <h4><label for="city">City:</label></h4>
+    <form action="">
+      <input type="text" id="city" [(ngModel)]="address.city" name='city'>
+    </form>
+</div>
+<div>
+    <h4><label for="street">Street:</label></h4>
+    <form action="">
+      <input type="text" id="street" [(ngModel)]="address.street" name='street'>
+    </form>
+</div>
+<div>
+    <h4><label for="state">State:</label></h4>
+    <form action="">
+      <input type="text" id="state" [(ngModel)]="address.state" name='state'>
+    </form>
+</div>
+<h2>Hobbies</h2>
+<label for="newHobby">Add New Hobby</label>
+<form (submit)="addHobby(hobby.value)">
+  <input id="newHobby" type="text" #hobby>
+  <button>Add</button>
+</form>
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">{{i + 1}}: Me gusta {{hobby}}
+    <button (click)="deleteHobby(hobby)">X</button>
+  </li>
+</ul>
